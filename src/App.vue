@@ -15,6 +15,7 @@
 import UserItems from "@/components/UserItems";
 import GuestItems from "@/components/GuestItems";
 import { isUserLogin } from "@test-mf/api";
+import { handleEvent } from "@test-mf/eventbus";
 
 export default {
 	name: "NavBar",
@@ -24,6 +25,10 @@ export default {
 	},
 	data() {
 		return { isSignIn: isUserLogin() };
+	},
+	mounted() {
+		handleEvent("userSignIn", () => (this.isSignIn = true));
+		handleEvent("userSignOut", () => (this.isSignIn = false));
 	},
 };
 </script>

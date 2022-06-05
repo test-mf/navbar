@@ -25,8 +25,10 @@ export default {
 	},
 	methods: {
 		signOut() {
-			userSignOut();
-			invokeEvent("userSignOut");
+			userSignOut().then(() => {
+				invokeEvent("userSignOut");
+				history.pushState(null, null, "#/");
+			});
 		},
 	},
 };

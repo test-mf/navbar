@@ -6,4 +6,5 @@ module.exports = defineConfig({
 			libraryTarget: "system",
 		},
 	},
+	devServer: { port: 8080 },
 });
